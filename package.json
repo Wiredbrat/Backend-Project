@@ -2,9 +2,11 @@
   "name": "project3",
   "version": "1.0.0",
   "description": "A full fledged backend project",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/index.js"
   },
   "keywords": [
     "backend"
@@ -13,5 +15,8 @@
   "license": "ISC",
   "dependencies": {
     "project3": "file:"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
   }
 }
