@@ -11,7 +11,8 @@ import databaseConnection from "./db/database.js"
 databaseConnection() // call the function to connect to the database
 .then(() => {
     app.on("error", (error) => {
-        console.log("Error Connecting database:", error)
+        console.log("Error Connecting database:", error);
+        throw error;
     })
     app.listen(process.env.PORT || 8000,() => {
         console.log(`Server is running : ${process.env.PORT}`)
