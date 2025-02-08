@@ -2,14 +2,30 @@
 import dotenv from "dotenv"
 // import mongoose from "mongoose";
 // import { DB_NAME } from "./constants";
-import express from "express";
-const app = express();
+import app from "./app.js"; // import the app from the app.js file
 
 dotenv.config({path: "./env"}); // this is the es6 method to import dotenv
 
 import databaseConnection from "./db/database.js"
 
-databaseConnection(); // call the function to connect to the database
+databaseConnection() // call the function to connect to the database
+.then(() => {
+    app.on("error", (error) => {
+        console.log("Error Connecting database:", error)
+    })
+    app.listen(process.env.PORT || 8000,() => {
+        console.log(`Server is running : ${process.env.PORT}`)
+    })
+})
+.catch((error) => {
+    console.log("Connection Failed ! ", error)
+})
+
+
+
+
+
+
 
 
 
