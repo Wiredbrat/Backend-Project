@@ -14,4 +14,13 @@ app.use(express.json({limit: "1mb"})) // use express.json() to parse the incomin
 app.use(express.urlencoded({extended :true, limit: "1mb"})) // use express.urlencoded() to parse the incoming url requests with urlencoded payloads
 app.use(cookieParser()) // use cookieParser to parse the incoming requests with cookies
 
-export { app }; // export the app to be used in the index.js file
+//routes import
+
+import userRouter from "./routes/user.routes.js"; // import the userRouter from the user.routes.js file
+
+
+// routes declaration
+
+app.use("/api/v1/users", userRouter) // use the userRouter for any requests that start with /users 
+
+export default app ; // export the app to be used in the index.js file

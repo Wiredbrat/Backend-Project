@@ -1,6 +1,6 @@
 //method1: this is a promise wrapper for async functions to handle errors and responses using promises
 const asyncHandler = (responseHandler) => (req, res, next) => {
-    Promise.resolve(responseHandler(req, res, next))
+    return Promise.resolve(responseHandler(req, res, next))
     .catch((err) => next(err))
 }
 

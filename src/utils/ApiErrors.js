@@ -18,3 +18,5 @@ class ApiErrors {
         }
     }
 }
+
+export { ApiErrors };
